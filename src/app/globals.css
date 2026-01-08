@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #FE4300; 
+  transition: height 0.3s ease;
+  z-index: 0;
+}
+
+button:hover::before {
+  height: 100%;
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) } 
+  100% { transform: rotate( 0.0deg) }
+}
+
+/* Typewriter effect */
+@keyframes typing {
+  /* First job: creative designer */
+  0%, 5% { content: ""; }
+  6%, 10% { content: "c"; }
+  11%, 15% { content: "cr"; }
+  16%, 20% { content: "cre"; }
+  21%, 25% { content: "crea"; }
+  26%, 30% { content: "creat"; }
+  31%, 35% { content: "creati"; }
+  36%, 40% { content: "creativ"; }
+  41%, 45% { content: "creative"; }
+  46%, 50% { content: "creative "; }
+  51%, 55% { content: "creative d"; }
+  56%, 60% { content: "creative de"; }
+  61%, 65% { content: "creative des"; }
+  66%, 70% { content: "creative desi"; }
+  71%, 75% { content: "creative desig"; }
+  76%, 80% { content: "creative design"; }
+  81%, 85% { content: "creative designe"; }
+  86%, 100% { content: "creative designer"; }
+  
+  /* Hold and transition to second job */
+  101%, 105% { content: ""; }
+  106%, 110% { content: "v"; }
+  111%, 115% { content: "vi"; }
+  116%, 120% { content: "vid"; }
+  121%, 125% { content: "vide"; }
+  126%, 130% { content: "video"; }
+  131%, 135% { content: "video "; }
+  136%, 140% { content: "video e"; }
+  141%, 145% { content: "video ed"; }
+  146%, 150% { content: "video edi"; }
+  151%, 155% { content: "video edit"; }
+  156%, 160% { content: "video edito"; }
+  161%, 175% { content: "video editor"; }
+  
+  /* Hold and transition to third job */
+  176%, 180% { content: ""; }
+  181%, 185% { content: "c"; }
+  186%, 190% { content: "co"; }
+  191%, 195% { content: "con"; }
+  196%, 200% { content: "cont"; }
+  201%, 205% { content: "conte"; }
+  206%, 210% { content: "conten"; }
+  211%, 215% { content: "content"; }
+  216%, 220% { content: "content "; }
+  221%, 225% { content: "content m"; }
+  226%, 230% { content: "content ma"; }
+  231%, 235% { content: "content man"; }
+  236%, 240% { content: "content mana"; }
+  241%, 245% { content: "content manag"; }
+  246%, 250% { content: "content manage"; }
+  251%, 300% { content: "content manager"; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter {
+  --caret: currentcolor;
+}
+
+.typewriter::before {
+  content: "";
+  animation: typing 9s infinite;
+}
+
+.typewriter::after {
+  content: "";
+  border-right: 2px solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+.typewriter.thick::after {
+  border-right: 1ch solid var(--caret);
+}
+
+.typewriter.nocaret::after {
+  border-right: 0;
+}
+
+@media (prefers-reduced-motion) {
+  .typewriter::after {
+    animation: none;
+  }
+  
+  @keyframes sequencePopup {
+    0%, 100% { content: "creative designer"; }
+    33.33% { content: "video editor"; }
+    66.66% { content: "content manager"; }
+  }
+
+  .typewriter::before {
+    content: "creative designer";
+    animation: sequencePopup 9s linear infinite;
+  }
+}
+
+
+
+
+
+@theme {
+  --color-primary: #FE4300;
+  --color-secondary: #868686;
+  --color-softGray: #F0F0F0;
+  --color-mistGray: #D7DCDD;
+  --color-gray: #C0D8E0;
+
+  --breakpoint-xs: 425px;
+}
+
+@layer utilities {
+  .container {
+    @apply w-full max-w-[80rem] mx-auto mt-0 mb-0 py-0 sm:px-7 px-5;
+  }
+  .label {
+    @apply text-secondary text-sm font-normal;
+  }
+  .input {
+    @apply w-full border-b border-gray focus:border-primary focus:outline-none py-2;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl xl:text-7xl 2xl:text-[85px] font-semibold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl lg:text-6xl xl:text-[65px] font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold;
+  }
+
+  h4 {
+    @apply text-4xl;
+  }
+
+  h5 {
+    @apply text-xl xl:text-2xl;
+  }
+
+  h6 {
+    @apply text-sm md:text-base xl:text-xl;
+  }
+
+  p {
+    @apply text-base text-secondary;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  header, footer, .navbar, .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  * {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  html, body {
+    height: auto;
+    overflow: visible;
+  }
+
+  .hero-section{
+    padding-top: 35px;
+  }
+
+  .break-page {
+    break-before: page;
+    page-break-before: always;
+  }
+}

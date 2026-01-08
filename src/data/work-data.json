@@ -1,0 +1,40 @@
+{
+  "workData": [
+    {
+      "image": "/images/work/work-img-1.jpg",
+      "title": "Social Media Content System",
+      "client": "Elios Academy",
+      "slug": "elios-social-media-content"
+    },
+    {
+      "image": "/images/work/work-img-2.jpg",
+      "title": "Educational Content Design",
+      "client": "Favor Academy",
+      "slug": "favor-educational-content"
+    },
+    {
+      "image": "/images/work/work-img-3.jpg",
+      "title": "Brand Identity & Visual Direction",
+      "client": "Synta Academy",
+      "slug": "synta-brand-identity"
+    },
+    {
+      "image": "/images/work/work-img-4.jpg",
+      "title": "Social Media Growth Campaigns",
+      "client": "Synta Academy",
+      "slug": "synta-social-media-campaigns"
+    },
+    {
+      "image": "/images/work/work-img-5.jpg",
+      "title": "Short-Form Educational Reels",
+      "client": "Multiple Education Brands",
+      "slug": "educational-reels-design"
+    },
+    {
+      "image": "/images/work/work-img-6.jpg",
+      "title": "Scalable Content Design Systems",
+      "client": "Education Platforms",
+      "slug": "content-design-systems"
+    }
+  ]
+}
